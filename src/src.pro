@@ -16,11 +16,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     i2c.cpp \
     sensor.cpp \
-    integrator.cpp
+    integrator.cpp \
+    lcd.cpp
 
 HEADERS  += mainwindow.h \
     i2c.h \
     sensor.h \
-    integrator.h
+    integrator.h \
+    lcd.h
 
 FORMS    += mainwindow.ui

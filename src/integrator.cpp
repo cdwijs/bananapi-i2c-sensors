@@ -1,13 +1,17 @@
 #include "integrator.h"
 #include <QDebug>
 #include "sensor.h"
+#include "lcd.h"
 
-sensor mySensor(1);
-sensor mySensor2(3);
-sensor mySensor3(5);
-sensor mySensor4(7);
-sensor mySensor5(11);
+sensor mySensor('a');
+sensor mySensor2('b');
+sensor mySensor3('c');
+sensor mySensor4('d');
+sensor mySensor5('e');
 
+lcd myLcd;
+
+bool myResult;
 
 integrator::integrator()
 {
@@ -29,10 +33,15 @@ bool integrator::update(void)
 {
     qDebug()<< "integrator update";
     mySensor.getValue();
+    myLcd.write("FEDCBA9876543210","ponmlkjihgfedcba");
     mySensor2.getValue();
+    myLcd.write("Sensor2         ","GetValue        ");
     mySensor3.getValue();
+    myLcd.write("Sensor3         ","GetValue        ");
     mySensor4.getValue();
+    myLcd.write("Sensor4         ","GetValue        ");
     mySensor5.getValue();
+    myLcd.write("Sensor5         ","GetValue        ");
     return true;
 }
 

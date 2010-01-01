@@ -6,7 +6,7 @@ struct i2c_message
 {
     int length;
     char * buffer;
-    char address;
+    int address;
 };
 
 

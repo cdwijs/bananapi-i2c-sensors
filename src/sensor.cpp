@@ -23,7 +23,7 @@ bool sensor::getValue(void)
     myMessage.length = 2;
     myMessage.buffer = buffer;
 
-    if (myI2c.write(myMessage))
+    if (myI2c.write(myMessage)) //return value of -1 is seen as success ...
     {
         myI2c.read(myMessage);
        // result=3.14; //put into pointed value or struct
