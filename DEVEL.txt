@@ -21,9 +21,10 @@ $ git clone https://github.com/username/bananapi-i2c-sensors.git The repository 
 
 Double click "src.pro" Now Qt creator will start, and load the project.
 When you have edited files, choose tools->git->local repository->commit. Activate the checkbox [X] files->check all, type a meaningfull description of the change, and press commit. This information is then stored locally on your computer.
+Next, publish the changes you have made to github. Choose tools->git->Remote Repository->Push You will be asked for your github username and password. Now the changes are transferred to your repository on github.
 
-
-
+Finally, login to github, navigate to your fork of bananapi-i2c-sensors, and click "Pull request", and then click "Create pull request"
+Provide a meaningful summary and description, then click "Create pull request". Now the developers are notified of your changes.
 
 
 ===================================================
@@ -40,7 +41,7 @@ click OK. the repository is now cloned into the folder on your hard disk.
 
 When you have edited files, right click on the folder, choose commit -> master.
 You will be asked to enter information why you made the changes. This information is then stored locally on your computer.
-Next, publish the changes you have made to github by rightclick, and push. You will be asked for your github username and password. Now the changes are transferred to your version on github.
+Next, publish the changes you have made to github by rightclick, and push. You will be asked for your github username and password. Now the changes are transferred to your repository on github.
 
 Finally, login to github, navigate to your fork of bananapi-i2c-sensors, and click "Pull request", and then click "Create pull request"
 Provide a meaningful summary and description, then click "Create pull request". Now the developers are notified of your changes.
