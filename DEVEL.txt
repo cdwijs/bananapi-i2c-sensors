@@ -34,7 +34,7 @@ click OK. the repository is now cloned into the folder on your hard disk.
 
 When you have edited files, right click on the folder, choose commit -> master.
 You will be asked to enter information why you made the changes. This information is then stored locally on your computer.
-Next, publish the changes you have made to github by rightclick, and push. You will be asked for your github password. Now the changes are transferred to your version on sourcefore.
+Next, publish the changes you have made to github by rightclick, and push. You will be asked for your github password. Now the changes are transferred to your version on github.
 
 Finally, login to github, navigate to your fork of win32diskimager, and click "Request Merge"
 Provide a meaningful summary and description, then click "Save". Now the developers are notified of your changes.
