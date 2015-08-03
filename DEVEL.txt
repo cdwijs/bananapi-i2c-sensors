@@ -1,0 +1,40 @@
+Development guide bananapi-i2c-sensors
+
+ga naar github, login ,en creer een nieuwe repository:
+repository: bananapi-i2c-sensors
+description: Log an array of i2c sensors connected to a bananapi
+[X]public
+[X]initialize this repository whith a readme
+Add a license: GNU general Public license v3.0
+create repository
+
+tijdelijk github-account:
+cdwijs-test
+vailofri@10minutesmail.com
+zslritb2vzslrtuybv
+
+Onder windows:
+==========================================
+Getting the source and contribute changes:
+==========================================
+Download and install tortoisegit from here:
+https://code.google.com/p/tortoisegit/wiki/Download
+
+Go to github.com, create an account, and login.
+Search for bananapi-i2c-sensors, and goto the repository.
+https://github.com/cdwijs/bananapi-i2c-sensors
+Next click "fork" at the top-left, then click fork.
+Copy the "HTTPS clone URL" line at the right side
+
+create a new folder somewhere on your hard disk.
+right click the folder, choose "Git Clone..."
+paste the "HTTPS clone URL" line into the line "URL:" it should be something like this:
+https://github.com/username/bananapi-i2c-sensors.git
+click OK. the repository is now cloned into the folder on your hard disk.
+
+When you have edited files, right click on the folder, choose commit -> master.
+You will be asked to enter information why you made the changes. This information is then stored locally on your computer.
+Next, publish the changes you have made to github by rightclick, and push. You will be asked for your github password. Now the changes are transferred to your version on sourcefore.
+
+Finally, login to github, navigate to your fork of win32diskimager, and click "Request Merge"
+Provide a meaningful summary and description, then click "Save". Now the developers are notified of your changes.
