@@ -2,7 +2,7 @@
 #include <QDebug>
 #include "i2c.h"
 
-i2c myI2c;
+i2c myI2c; //variables declared here are shared by all objects
 
 
 sensor::sensor(char address)
