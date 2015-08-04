@@ -13,8 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    i2c.cpp \
+    sensor.cpp \
+    integrator.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    i2c.h \
+    sensor.h \
+    integrator.h
 
 FORMS    += mainwindow.ui

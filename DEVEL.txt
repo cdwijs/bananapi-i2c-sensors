@@ -13,6 +13,11 @@ Getting Qt (Bananapi-lubuntu)
 As root, install qt-sdk:
 #apt-get install qt-sdk
 
+=============================
+Getting Dia (Bananapi-lubuntu)
+=============================
+$ sudo apt-get install dia 
+
 ============================================================
 Getting the source and contribute changes (Bananapi-lubuntu)
 ============================================================
@@ -26,6 +31,11 @@ Next, publish the changes you have made to github. Choose tools->git->Remote Rep
 Finally, login to github, navigate to your fork of bananapi-i2c-sensors, and click "Pull request", and then click "Create pull request"
 Provide a meaningful summary and description, then click "Create pull request". Now the developers are notified of your changes.
 
+===========================================
+Testing the i2c hardware (Bananapi-lubuntu)
+===========================================
+Issue the following command. This will scan the i2c bus on the expansion header. 
+$ i2cdetect -y 2
 
 ===================================================
 Getting the source and contribute changes (Windows)
@@ -69,5 +79,9 @@ Install Git for windows, accept all the defaults except "Use Git from Windows Co
 https://msysgit.github.io/
 Next restart the computer to make sure the PATH variable has been updated. Start cmd.exe and type "path <enter>". "c:\Program Files (x86)\Git\cmd" should be present
 
-
+=====================
+Getting Dia (windows)
+=====================
+Download and install dia from here, accept the default settings
+http://dia-installer.de/
 
