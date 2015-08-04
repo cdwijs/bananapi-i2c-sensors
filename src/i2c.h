@@ -2,15 +2,21 @@
 #define I2C_H
 
 
-//define a struct with address, data, length
+struct i2c_message
+{
+    int length;
+    char * buffer;
+    char address;
+};
+
 
 class i2c
 {
 public:
     i2c();
     ~i2c();
-    bool read(void); //need address, data, length, return true for success, false for failure
-    bool write(void); //need address, data, length
+    bool read(i2c_message msg); //need address, data, length, return true for success, false for failure
+    bool write(i2c_message msg); //need address, data, length
     bool initialize(void); //need adapter number
 };
 

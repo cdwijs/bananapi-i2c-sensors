@@ -2,11 +2,11 @@
 #include <QDebug>
 #include "sensor.h"
 
-sensor mySensor;
-sensor mySensor2;
-sensor mySensor3;
-sensor mySensor4;
-sensor mySensor5;
+sensor mySensor(1);
+sensor mySensor2(3);
+sensor mySensor3(5);
+sensor mySensor4(7);
+sensor mySensor5(11);
 
 
 integrator::integrator()

@@ -15,15 +15,16 @@ i2c::~i2c()
     qDebug()<< "i2c destructor";
 }
 
-bool i2c::read() //need address, data, length, return true for success, false for failure
+bool i2c::read(i2c_message msg) //return true for success, false for failure
 {
-    qDebug()<< "i2c read";
+    //qDebug()<< "i2c read";
+    qDebug()<< "i2c read: Address: " << msg.address << "lenth: " << msg.length;
     myQobject.thread()->msleep(500);//emulate slow read
     qDebug()<< "i2c read done";
     return true;
 }
 
-bool i2c::write() //need address, data, length
+bool i2c::write(i2c_message msg)
 {
    qDebug()<< "i2c write";
    myQobject.thread()->msleep(500);//emulate slow read

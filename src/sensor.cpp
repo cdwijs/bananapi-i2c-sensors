@@ -4,9 +4,11 @@
 
 i2c myI2c;
 
-sensor::sensor()
+
+sensor::sensor(char address)
 {
-    qDebug()<< "sensor constructor";
+    qDebug()<< "sensor constructor, address: " << address;
+    myMessage.address = address;
 }
 
 sensor::~sensor()
@@ -16,12 +18,15 @@ sensor::~sensor()
 
 bool sensor::getValue(void)
 {
-    float result;
-    qDebug()<< "sensor getValue";
-    if (myI2c.write())
+    //float result;
+    qDebug()<< "sensor getValue, address: " << myMessage.address;
+    myMessage.length = 2;
+    myMessage.buffer = buffer;
+
+    if (myI2c.write(myMessage))
     {
-        myI2c.read();
-        result=3.14; //put into pointed value or struct
+        myI2c.read(myMessage);
+       // result=3.14; //put into pointed value or struct
         return true;
     }
     else
@@ -34,5 +39,13 @@ bool sensor::getValue(void)
 bool sensor::initialize(void)
 {
      qDebug()<< "sensor initialize";
-     myI2c.initialize();
+     if (myI2c.initialize())
+     {
+         return true;
+     }
+     else
+     {
+         return false;
+     }
+
 }
