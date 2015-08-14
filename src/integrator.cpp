@@ -33,15 +33,15 @@ bool integrator::update(void)
 {
     qDebug()<< "integrator update";
     mySensor.getValue();
-    myLcd.write("FEDCBA9876543210","ponmlkjihgfedcba");
+    //myLcd.write("FEDCBA9876543210","ponmlkjihgfedcba");
     mySensor2.getValue();
-    myLcd.write("Sensor2         ","GetValue        ");
+    //myLcd.write("Sensor2         ","GetValue        ");
     mySensor3.getValue();
-    myLcd.write("Sensor3         ","GetValue        ");
+    //myLcd.write("Sensor3         ","GetValue        ");
     mySensor4.getValue();
-    myLcd.write("Sensor4         ","GetValue        ");
+    //myLcd.write("Sensor4         ","GetValue        ");
     mySensor5.getValue();
-    myLcd.write("Sensor5         ","GetValue        ");
+    //myLcd.write("Sensor5         ","GetValue        ");
     return true;
 }
 

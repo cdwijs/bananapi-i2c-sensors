@@ -6,7 +6,9 @@ const int LCD_LINELENGTH = 17;
 const int LCD_INITLENGTH = 6;
 const int LCD_LOCATIONLENGTH = 2;
 
-
+// driver for BATRON  BTHQ21605V-COG-FSRE-I2C  LCD MODULE, ALPHANUMERIC, 2X16
+// farnell ordercode 1220409 connected to con3 of the bananapi
+// http://nl.farnell.com/batron/bthq21605v-cog-fsre-i2c/lcd-module-alphanumeric-2x16/dp/1220409?ost=1220409
 
 lcd::lcd()
 {
