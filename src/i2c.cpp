@@ -18,9 +18,9 @@
   int opResult = 0;   // for error checking of operations
   int i2cHandle = 0;
 
-QObject myQobject;
+//QObject myQobject;
 
-#include <QThread> //for msleep, to emulate (very) slow i2c communication
+//#include <QThread> //for msleep, to emulate (very) slow i2c communication
 
 i2c::i2c()
 {
@@ -62,7 +62,7 @@ bool i2c::read(i2c_message msg) //return true for success, false for failure
     opResult = ioctl(i2cHandle, I2C_SLAVE, msg.address);
     opResult = ::read(i2cHandle, msg.buffer, msg.length);
  //   qDebug()<< opResult << " bytes read";
-    myQobject.thread()->msleep(200);//emulate slow read
+  //  myQobject.thread()->msleep(200);//emulate slow read
  //   qDebug()<< "i2c read done";
     return true; //add check to see if the requested amount is read
 }
@@ -76,7 +76,7 @@ bool i2c::write(i2c_message msg)
     opResult = ::write(i2cHandle, msg.buffer, msg.length);
   //  qDebug()<< opResult << " bytes written";
 
-    myQobject.thread()->msleep(200);//emulate slow write
+   // myQobject.thread()->msleep(200);//emulate slow write
 //    qDebug()<< "i2c write done";
     return true; //add check to see if the requested amount is written
 }
