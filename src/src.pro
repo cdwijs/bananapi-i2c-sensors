@@ -17,12 +17,20 @@ SOURCES += main.cpp\
     i2c.cpp \
     sensor.cpp \
     integrator.cpp \
-    lcd.cpp
+    lcd.cpp \
+    sensor_tc74a4.cpp \
+    sensor_mcp9800a0.cpp \
+    sensor_se95d.cpp \
+    sensor_emc1001.cpp
 
 HEADERS  += mainwindow.h \
     i2c.h \
     sensor.h \
     integrator.h \
-    lcd.h
+    lcd.h \
+    sensor_tc74a4.h \
+    sensor_mcp9800a0.h \
+    sensor_se95d.h \
+    sensor_emc1001.h
 
 FORMS    += mainwindow.ui

@@ -1,6 +1,7 @@
 #ifndef I2C_H
 #define I2C_H
 
+const char I2C_BUFFER_SIZE=40;
 
 struct i2c_message
 {

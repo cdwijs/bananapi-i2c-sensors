@@ -54,6 +54,7 @@ i2c::i2c()
 i2c::~i2c()
 {
     qDebug()<< "i2c destructor";
+    //close the file handle here
 }
 
 bool i2c::read(i2c_message msg) //return true for success, false for failure

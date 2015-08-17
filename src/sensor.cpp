@@ -1,28 +1,13 @@
+
+//sensor base class, until subclasses are understood, all below code is duplicated in specific sensor classes
+
 #include "sensor.h"
 #include <QDebug>
 #include "i2c.h"
 #include <QThread> //for msleep
 
-//driver for MICROCHIP  TC74A4-3.3VCTTR  IC, TEMPERATURE SENSOR
-//farnell ordercode 1652471
-//http://nl.farnell.com/microchip/tc74a4-3-3vcttr/ic-temperature-sensor/dp/1652471?ost=1652471
-//address = 0x4C
-
-//TC74 communication:
-//write:
-//Write Address, command, data
-//read:
-//Write address, command
-//Read address, data
-
-//command 0: RTR, read temperature
-//command 1: RWCR, read/write configuration
-
-
-
-
 i2c myI2c; //variables declared here are shared by all objects
-QObject myQobject;
+QObject myQobject; //for msleep
 
 sensor::sensor(char address)
 {
@@ -38,7 +23,10 @@ sensor::~sensor()
 bool sensor::getValue(void)
 {
     float result;
-    //TC74A4-3.3VCTTR code
+    //driver for MICROCHIP  TC74A4-3.3VCTTR  IC, TEMPERATURE SENSOR
+    //farnell ordercode 1652471
+    //http://nl.farnell.com/microchip/tc74a4-3-3vcttr/ic-temperature-sensor/dp/1652471?ost=1652471
+    //address = 0x4C
     myMessage.address = 0x4C;
     qDebug()<< "sensor getValue, address: " << myMessage.address;
     myMessage.length = 1;
@@ -73,7 +61,7 @@ bool sensor::getValue(void)
     result =( buffer[0]<<8 ) + buffer[1]; //conversion must be checked for negative values
     result /=256;
     qDebug("MCP9800A0T value: %f ^C", result);
-    //end TC74A4-3.3VCTTR code
+    //end MCP9800A0T-M/OT code
 
 
     //NXP  SE95D,112  TEMPERATURE SENSOR, 3DEG CEL, SOIC-8
