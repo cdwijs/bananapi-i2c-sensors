@@ -5,6 +5,7 @@ sensor_MCP9800A0::sensor_MCP9800A0(unsigned char address)
 {
     qDebug("MCP9800A0 constructor, address: %x",address);
     myMessage.address = address;
+    myMessage.buffer = buffer;
 }
 
 bool sensor_MCP9800A0::getTemperature(float * result)
@@ -15,7 +16,6 @@ bool sensor_MCP9800A0::getTemperature(float * result)
     //address 0x48
     //also works for MCP9801, 0x49
     //also works for TCN75A, 0x4A
-    myMessage.buffer = buffer;
     qDebug("sensor getValue, address: 0x%x", myMessage.address);
     myMessage.length = 1;
     buffer[0]= 0; //pointer = 0, temperature
@@ -30,7 +30,6 @@ bool sensor_MCP9800A0::getTemperature(float * result)
 bool sensor_MCP9800A0::initialize(void)
 {
     qDebug("sensor initialize, address: 0x%x", myMessage.address);
-    myMessage.buffer = buffer;
     myMessage.length = 2;
     buffer[0]= 1; //pointer = 1, config
     buffer[1]= (1<<5 | 1<<6); //bit 5 and 6 high, adc resolution=12 bit (240msec)

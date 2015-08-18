@@ -5,6 +5,7 @@ sensor_SE95D::sensor_SE95D(unsigned char address)
 {
     qDebug("SE95D constructor, address: %x",address);
     myMessage.address = address;
+    myMessage.buffer = buffer;
 }
 
 bool sensor_SE95D::getTemperature(float * result)
@@ -16,7 +17,6 @@ bool sensor_SE95D::getTemperature(float * result)
     //also works for LM75AD,   0x4B
     //also works for LM75BD,   0x4E
     //also works for PCT2075D, 0x28
-    myMessage.buffer = buffer;
     qDebug("sensor getValue, address: 0x%x", myMessage.address);
     myMessage.length = 1;
     buffer[0]= 0; //pointer = 0, temperature
@@ -31,7 +31,6 @@ bool sensor_SE95D::getTemperature(float * result)
 bool sensor_SE95D::initialize(void)
 {
     qDebug("sensor initialize, address: 0x%x", myMessage.address);
-    myMessage.buffer = buffer;
     myMessage.length = 2;
     buffer[0]= 1; //pointer = 1, config
     buffer[1]= 0; //defaults values: 10 conv/s

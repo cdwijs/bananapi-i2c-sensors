@@ -5,6 +5,7 @@ sensor_TC74A4::sensor_TC74A4(char address)
 {
     qDebug("TC74A4 constructor, address: %x",address);
     myMessage.address = address;
+    myMessage.buffer = buffer;
 }
 
 
@@ -16,7 +17,6 @@ bool sensor_TC74A4::getTemperature(float * result)
     //address = 0x4C
     qDebug("sensor getValue, address: 0x%x", myMessage.address);
     myMessage.length = 1;
-    myMessage.buffer = buffer;
     buffer[0]= 0; //command = 0, read temp
     myI2c.write(myMessage);
     myMessage.length = 1;

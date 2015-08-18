@@ -5,6 +5,7 @@ sensor_EMC1001::sensor_EMC1001(unsigned char address)
 {
     qDebug("EMC1001 constructor, address: %x",address);
     myMessage.address = address;
+    myMessage.buffer = buffer;
 }
 
 bool sensor_EMC1001::getTemperature(float * result)
@@ -13,8 +14,7 @@ bool sensor_EMC1001::getTemperature(float * result)
     //farnell ordercode 2361928
     //http://nl.farnell.com/microchip/emc1001-afzq-tr/ic-temp-sensor--1-5-deg-sot23/dp/2361928?ost=2361928
     //address 0x38
-    myMessage.buffer = buffer;
-    qDebug("sensor getValue, address: 0x%x", myMessage.address);
+    qDebug("sensor getTemperature, address: 0x%x", myMessage.address);
     myMessage.length = 1;
     buffer[0]= 0; //pointer = 0, temperature
     myI2c.write(myMessage);

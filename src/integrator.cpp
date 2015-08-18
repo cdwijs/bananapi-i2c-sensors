@@ -5,6 +5,9 @@
 #include "sensor_mcp9800a0.h" //also for MCP9801 and TCN75A
 #include "sensor_se95d.h" //also for LM75AD LM75BD and PCT2075D
 #include "sensor_emc1001.h"
+#include "sensor_hih6030.h"
+#include "sensor_mpl115a2.h"
+#include "sensor_at42qt1070.h"
 
 #include "lcd.h"
 #include <QString>
@@ -20,7 +23,14 @@ sensor_SE95D myLM75BD(0x4E);
 sensor_SE95D myPCT2075D(0x28);
 
 sensor_EMC1001 myEMC1001(0x38);
+sensor_HIH6030 myHIH6030(0x27);
 
+sensor_MPL115A2 myMPL115A2(0x60);
+
+sensor_AT42QT1070 myAT42QT1070(0x1B);
+
+float myTemp27;
+float myHumi27;
 float myTemp28;
 float myTemp38;
 float myTemp48;
@@ -30,6 +40,8 @@ float myTemp4B;
 float myTemp4C;
 float myTemp4E;
 float myTemp4F;
+float myPress60;
+unsigned char myKeys1B;
 
 lcd myLcd;
 
@@ -69,8 +81,15 @@ bool integrator::update(void)
 
     myEMC1001.getTemperature(&myTemp38);
 
-    line0.sprintf("%.4f %.4f ",myTemp4F,myTemp4B);
-    line1.sprintf("%.4f %.4f ",myTemp4E,myTemp28);
+    myHIH6030.getTemperature(&myTemp27);
+    myHIH6030.getHumidity(&myHumi27);
+
+    myMPL115A2.getPressure(&myPress60);
+
+    myAT42QT1070.getKeys(&myKeys1B);
+
+    line0.sprintf("%.4f %.4f ",myHumi27,myTemp27);
+    line1.sprintf("%.4f 0x%x ",myPress60,myKeys1B);
 
     myLcd.write(line0,0);
     myLcd.write(line1,1);
@@ -91,5 +110,12 @@ bool integrator::initialize(void)
     myPCT2075D.initialize();
 
     myEMC1001.initialize();
+
+    myHIH6030.initialize();
+
+    myMPL115A2.initialize();
+
+    myAT42QT1070.initialize();
+
     return true;
 }
