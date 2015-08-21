@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     sensor_emc1001.cpp \
     sensor_hih6030.cpp \
     sensor_mpl115a2.cpp \
-    sensor_at42qt1070.cpp
+    sensor_at42qt1070.cpp \
+    gpio.cpp
 
 HEADERS  += mainwindow.h \
     i2c.h \
@@ -37,6 +38,7 @@ HEADERS  += mainwindow.h \
     sensor_emc1001.h \
     sensor_hih6030.h \
     sensor_mpl115a2.h \
-    sensor_at42qt1070.h
+    sensor_at42qt1070.h \
+    gpio.h
 
 FORMS    += mainwindow.ui

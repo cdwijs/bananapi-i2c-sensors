@@ -9,6 +9,8 @@
 #include "sensor_mpl115a2.h"
 #include "sensor_at42qt1070.h"
 
+#include "gpio.h"
+
 #include "lcd.h"
 #include <QString>
 
@@ -28,6 +30,9 @@ sensor_HIH6030 myHIH6030(0x27);
 sensor_MPL115A2 myMPL115A2(0x60);
 
 sensor_AT42QT1070 myAT42QT1070(0x1B);
+
+gpio ioEncBtn(27,false);
+gpio ioPir(22,false);
 
 float myTemp27;
 float myHumi27;
@@ -69,7 +74,7 @@ bool integrator::setDivider(int)
 bool integrator::update(void)
 {
     qDebug()<< "integrator update";
-    myMCP9800A0.getTemperature(&myTemp48);
+/*   myMCP9800A0.getTemperature(&myTemp48);
     myMCP9801.getTemperature(&myTemp49);
     myTCN75A.getTemperature(&myTemp4A);
     myTC74A4.getTemperature(&myTemp4C);
@@ -88,9 +93,25 @@ bool integrator::update(void)
 
     myAT42QT1070.getKeys(&myKeys1B);
 
-    line0.sprintf("%.4f %.4f ",myHumi27,myTemp27);
-    line1.sprintf("%.4f 0x%x ",myPress60,myKeys1B);
+    line0.sprintf("%.4fC %.3f%%",myHumi27,myTemp27);
+    line1.sprintf("%.4fKPa 0x%x ",myPress60,myKeys1B);*/
 
+    if (ioEncBtn.getVal())
+    {
+        line0.sprintf("button up       ");
+    }
+    else
+    {
+        line0.sprintf("button down      ");
+    }
+    if (ioPir.getVal())
+    {
+        line1.sprintf("                ");
+    }
+    else
+    {
+        line1.sprintf("Motion Detected ");
+    }
     myLcd.write(line0,0);
     myLcd.write(line1,1);
     return true;

@@ -85,3 +85,28 @@ Getting Dia (windows)
 Download and install dia from here, accept the default settings
 http://dia-installer.de/
 
+
+
+=====================
+Preparing the bananapi
+=====================
+add the following line to /etc/group. This will add the group gpio, and make banapi part of the group
+gpio:x:123:bananapi
+run the following script at startup to set the permissions for the gpio nodes:
+#!/bin/bash
+echo 17 > /sys/class/gpio/export
+echo 18 > /sys/class/gpio/export
+echo 27 > /sys/class/gpio/export
+echo 22 > /sys/class/gpio/export
+echo 23 > /sys/class/gpio/export
+
+chown -R root:gpio /sys/class/gpio
+chmod -R 660 /sys/class/gpio
+chmod 755 /sys/class/gpio
+
+chown -R root:gpio /sys/devices/platform/gpio-sunxi/gpio/
+chmod -R 775 /sys/devices/platform/gpio-sunxi/gpio/
+chmod 755 /sys/class/gpio
+
+
+
